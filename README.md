@@ -10,27 +10,30 @@ Ein kuratiertes Skill-Pack für [Claude Code](https://docs.claude.com/en/docs/cl
 
 ## Installation (Claude Code)
 
-Skills liegen in Claude Code unter `~/.claude/skills/`. Du hast zwei Möglichkeiten:
+Das Repo ist ein Claude-Code-Plugin-Marketplace. Marketplace hinzufügen und Pack installieren — zwei Befehle:
 
-### Variante A — einzelnen Skill kopieren
+```bash
+/plugin marketplace add elnebuloso/ai-skills
+/plugin install ai-skills@elnebuloso
+```
+
+Danach sind alle Skills aus dem Pack verfügbar. Du kannst sie über ihren Trigger ansprechen (z.B. „alles sauber?") oder direkt mit `/bananas` aufrufen.
+
+### Manuelle Installation (ohne Plugin)
+
+Alternativ einen einzelnen Skill nach `~/.claude/skills/` kopieren:
 
 ```bash
 git clone https://github.com/elnebuloso/ai-skills.git
 cp -r ai-skills/skills/bananas ~/.claude/skills/bananas
 ```
 
-### Variante B — per Symlink (bleibt mit dem Repo aktuell)
-
-```bash
-git clone https://github.com/elnebuloso/ai-skills.git ~/ai-skills
-ln -s ~/ai-skills/skills/bananas ~/.claude/skills/bananas
-```
-
-Nach der Installation steht der Skill in Claude Code zur Verfügung. Du kannst ihn über seinen Trigger ansprechen oder direkt mit `/bananas` aufrufen.
-
 ## Repository-Struktur
 
 ```
+.claude-plugin/
+├── marketplace.json     # Marketplace-Definition
+└── plugin.json          # Plugin-Manifest (das Skill-Pack)
 skills/
 └── <skill-name>/
     ├── SKILL.md          # Frontmatter (name, description) + Anleitung

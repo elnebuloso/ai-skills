@@ -1,0 +1,13 @@
+{
+  "name": "ai-skills",
+  "description": "Kuratiertes Skill-Pack für Claude Code. Enthält den bananas Session-Cleanup-Check.",
+  "version": "0.1.0",
+  "author": {
+    "name": "elnebuloso",
+    "email": "jan.thoennessen@gmail.com"
+  },
+  "homepage": "https://github.com/elnebuloso/ai-skills",
+  "repository": "https://github.com/elnebuloso/ai-skills",
+  "license": "MIT",
+  "keywords": ["skills", "claude-code", "workflow"]
+}
