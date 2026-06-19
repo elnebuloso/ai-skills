@@ -1,0 +1,23 @@
+{
+  "skill_name": "bananas",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Ok ich glaube wir sind fertig für heute. Kannst du nochmal schauen ob alles sauber ist? Wir haben heute die Login-Komponente refactored, ich glaube da lagen noch ein paar console.logs drin. Ausserdem wollten wir noch die Unit Tests für den neuen Auth-Flow schreiben, das haben wir aber glaube ich nie gemacht.",
+      "expected_output": "Der Skill findet die Bananenschalen (console.logs, fehlende Tests), bewertet ihre Schwere, und schlägt konkrete Fixes vor. Gibt eine klare Empfehlung ob die Session geschlossen werden kann oder nicht.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Alles sauber? Kann ich die Session schliessen? Wir haben heute nur Dokumentation aktualisiert, alles committed.",
+      "expected_output": "Der Skill bestätigt dass alles sauber ist, gibt ein kurzes ✓ und eine 1-2 Satz Zusammenfassung was heute erledigt wurde.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Liegt noch irgendwo was rum bevor ich zumache? Wir sollten eigentlich noch die API-Rate-Limiting Logik besprechen die du vorhin erwähnt hast, und ich hab glaub noch einen offenen Stash irgendwo.",
+      "expected_output": "Der Skill findet den offenen Stash und das unbeantwortete Thema (Rate Limiting), bewertet locker/kritisch, schlägt vor was zu tun ist. Keine Übertreibung bei der Schwere.",
+      "files": []
+    }
+  ]
+}
