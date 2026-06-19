@@ -28,6 +28,15 @@ git clone https://github.com/elnebuloso/ai-skills.git
 cp -r ai-skills/skills/bananas ~/.claude/skills/bananas
 ```
 
+## Updates
+
+Neue Skills und Änderungen werden mit jedem Push veröffentlicht (das Plugin ist nicht auf eine feste Version gepinnt — jeder Commit zählt als neue Version). Um den neuesten Stand zu holen:
+
+```bash
+/plugin marketplace update ai-skills
+/plugin update elnebuloso@ai-skills
+```
+
 ## Repository-Struktur
 
 ```
