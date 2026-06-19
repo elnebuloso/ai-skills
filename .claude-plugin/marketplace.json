@@ -1,5 +1,5 @@
 {
-  "name": "elnebuloso",
+  "name": "ai-skills",
   "owner": {
     "name": "elnebuloso",
     "email": "jan.thoennessen@gmail.com"
@@ -7,7 +7,7 @@
   "description": "Kuratiertes Skill-Pack für Claude Code von elnebuloso.",
   "plugins": [
     {
-      "name": "ai-skills",
+      "name": "elnebuloso",
       "source": "./",
       "description": "Skill-Pack: bewährte Workflows als wiederverwendbare Claude-Code-Skills."
     }

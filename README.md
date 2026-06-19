@@ -14,10 +14,10 @@ Das Repo ist ein Claude-Code-Plugin-Marketplace. Marketplace hinzufügen und Pac
 
 ```bash
 /plugin marketplace add elnebuloso/ai-skills
-/plugin install ai-skills@elnebuloso
+/plugin install elnebuloso@ai-skills
 ```
 
-Danach sind alle Skills aus dem Pack verfügbar. Du kannst sie über ihren Trigger ansprechen (z.B. „alles sauber?") oder direkt mit `/bananas` aufrufen.
+Danach sind alle Skills aus dem Pack verfügbar. Sie sind unter dem Namespace `elnebuloso:` adressierbar — du kannst sie über ihren Trigger ansprechen (z.B. „alles sauber?") oder direkt mit `/elnebuloso:bananas` aufrufen. Der Namespace verhindert Konflikte, falls ein anderes Plugin einen gleichnamigen Skill mitbringt.
 
 ### Manuelle Installation (ohne Plugin)
 
