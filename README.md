@@ -1,42 +1,45 @@
 # ai-skills
 
-Ein kuratiertes Skill-Pack für [Claude Code](https://docs.claude.com/en/docs/claude-code). Gute Workflows als wiederverwendbare Skills — damit sich bewährte Abläufe nicht in jeder Session neu erklären müssen.
+Ein kuratiertes Skill-Pack für [Claude Code](https://docs.claude.com/en/docs/claude-code). Bewährte Workflows als wiederverwendbare Skills — damit sich gute Abläufe nicht in jeder Session neu erklären müssen.
 
 ## Skills
 
-| Skill | Beschreibung | Trigger |
-|-------|--------------|---------|
-| [`bananas`](skills/bananas/SKILL.md) | Session-Cleanup-Check: prüft Git-State, Tests, Debug-Reste, Memory und offene Gesprächsfäden, bevor du eine Session schließt. | „alles sauber?", „kann ich die Session abschließen?", „Bananenschalen?", „are we done?" |
-| [`feierabend`](skills/feierabend/SKILL.md) | Saubere Session-Übergabe zum Arbeitsende: schreibt einen Handoff (Standard `docs/HANDOFF.md`), spürt Stolperfallen für morgen auf und gibt einen Start-Prompt mit — damit die nächste Session reibungslos weiterläuft. | „Feierabend", „das reicht für heute", „ich gehe gleich weg", „schreib eine Übergabe / Handoff" |
-| [`moin`](skills/moin/SKILL.md) | Wiedereinstieg zu Session-Beginn: übernimmt die hinterlassene Übergabe (Standard `docs/HANDOFF.md`), gleicht sie gegen den echten Stand (git, Commits, Dateien) ab, zeigt Verständnis und schlägt den ersten Schritt vor. | „Moin", „guten Morgen", „wo haben wir gestern aufgehört?", „lies dich in den Handoff ein" |
+Die Skills begleiten den Session-Lebenszyklus: morgens einsteigen, abends übergeben.
 
-## Installation (Claude Code)
+| Skill | Beschreibung | Trigger (Beispiele) |
+|-------|--------------|---------------------|
+| [`moin`](skills/moin/SKILL.md) | **Session-Einstieg.** Übernimmt die hinterlassene Übergabe (Standard `docs/HANDOFF.md`), gleicht sie gegen den echten Stand ab (git, Commits, Dateien), fasst zusammen und schlägt den ersten Schritt vor. | „Moin", „guten Morgen", „wo haben wir gestern aufgehört?", „lies dich in den Handoff ein" |
+| [`feierabend`](skills/feierabend/SKILL.md) | **Session-Abschluss.** Schreibt die Übergabe (Standard `docs/HANDOFF.md`), spürt Stolperfallen für morgen auf und gibt einen Start-Prompt mit — damit die nächste Session reibungslos anknüpft. | „Feierabend", „das reicht für heute", „ich gehe gleich weg", „schreib eine Übergabe" |
 
-Das Repo ist ein Claude-Code-Plugin-Marketplace. Marketplace hinzufügen und Pack installieren — zwei Befehle:
+`moin` und `feierabend` sind ein Paar: Was am Abend übergeben wird, übernimmt der Morgen.
+
+## Installation
+
+Das Repo ist ein Claude-Code-Plugin-Marketplace — Marketplace hinzufügen, Pack installieren:
 
 ```bash
 /plugin marketplace add elnebuloso/ai-skills
 /plugin install elnebuloso@ai-skills
 ```
 
-Danach sind alle Skills aus dem Pack verfügbar. Sie sind unter dem Namespace `elnebuloso:` adressierbar — du kannst sie über ihren Trigger ansprechen (z.B. „alles sauber?") oder direkt mit `/elnebuloso:bananas` aufrufen. Der Namespace verhindert Konflikte, falls ein anderes Plugin einen gleichnamigen Skill mitbringt.
+Danach sind alle Skills verfügbar. Du kannst sie über ihren Trigger ansprechen (z.B. „Moin") oder direkt unter dem Namespace `elnebuloso:` aufrufen, etwa `/elnebuloso:moin`. Der Namespace verhindert Konflikte mit gleichnamigen Skills aus anderen Plugins.
 
-### Manuelle Installation (ohne Plugin)
+### Updates
 
-Alternativ einen einzelnen Skill nach `~/.claude/skills/` kopieren:
-
-```bash
-git clone https://github.com/elnebuloso/ai-skills.git
-cp -r ai-skills/skills/bananas ~/.claude/skills/bananas
-```
-
-## Updates
-
-Neue Skills und Änderungen werden mit jedem Push veröffentlicht (das Plugin ist nicht auf eine feste Version gepinnt — jeder Commit zählt als neue Version). Um den neuesten Stand zu holen:
+Jeder Push veröffentlicht eine neue Version (das Plugin ist nicht auf eine feste Version gepinnt — jeder Commit zählt). Für den neuesten Stand:
 
 ```bash
 /plugin marketplace update ai-skills
 /plugin update elnebuloso@ai-skills
+```
+
+### Manuell (ohne Plugin)
+
+Alternativ einen einzelnen Skill direkt nach `~/.claude/skills/` kopieren:
+
+```bash
+git clone https://github.com/elnebuloso/ai-skills.git
+cp -r ai-skills/skills/moin ~/.claude/skills/moin
 ```
 
 ## Repository-Struktur
@@ -47,9 +50,7 @@ Neue Skills und Änderungen werden mit jedem Push veröffentlicht (das Plugin is
 └── plugin.json          # Plugin-Manifest (das Skill-Pack)
 skills/
 └── <skill-name>/
-    ├── SKILL.md          # Frontmatter (name, description) + Anleitung
-    └── evals/
-        └── evals.json    # Beispiel-Prompts zum Testen des Skills
+    └── SKILL.md         # Frontmatter (name, description) + Anleitung
 ```
 
 Jeder Skill steht in einem eigenen Ordner. Die `SKILL.md` enthält im Frontmatter `name` und `description` — die `description` entscheidet, wann Claude den Skill aktiviert.
