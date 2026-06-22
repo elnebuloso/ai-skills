@@ -24,6 +24,27 @@ Das Repo ist ein Claude-Code-Plugin-Marketplace — Marketplace hinzufügen, Pac
 
 Danach sind alle Skills verfügbar. Du kannst sie über ihren Trigger ansprechen (z.B. „Moin") oder direkt unter dem Namespace `elnebuloso:` aufrufen, etwa `/elnebuloso:moin`. Der Namespace verhindert Konflikte mit gleichnamigen Skills aus anderen Plugins.
 
+So installiert gilt das Pack nutzerweit — in allen Projekten.
+
+### Nur in einem Projekt (Projekt-Scope)
+
+Soll das Pack ausschließlich in einem bestimmten Repo gelten, statt nutzerweit, aktiviere es über eine eingecheckte `.claude/settings.json` in **diesem** Projekt:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "ai-skills": {
+      "source": { "source": "github", "repo": "elnebuloso/ai-skills" }
+    }
+  },
+  "enabledPlugins": ["elnebuloso@ai-skills"]
+}
+```
+
+Beim ersten Öffnen des Projekts fragt Claude Code einmalig, ob du dem Workspace vertraust. Nach dem Vertrauen wird die Marketplace-Quelle automatisch hinzugefügt und das Pack beim Session-Start geladen — ohne separate Bestätigung pro Plugin und nur in diesem Projekt. Das Vertrauen wird pro Verzeichnis gespeichert; für den ersten Start ist Netzwerkzugriff nötig (das Pack wird von GitHub geholt).
+
+Wer nur einen einzelnen Skill projekt-lokal will, legt ihn direkt unter `.claude/skills/<name>/SKILL.md` im Repo ab (ohne Marketplace, gilt nur dort).
+
 ### Updates
 
 Jeder Push veröffentlicht eine neue Version (das Plugin ist nicht auf eine feste Version gepinnt — jeder Commit zählt). Für den neuesten Stand:
