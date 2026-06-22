@@ -8,6 +8,7 @@ Ein kuratiertes Skill-Pack für [Claude Code](https://docs.claude.com/en/docs/cl
 |-------|--------------|---------|
 | [`bananas`](skills/bananas/SKILL.md) | Session-Cleanup-Check: prüft Git-State, Tests, Debug-Reste, Memory und offene Gesprächsfäden, bevor du eine Session schließt. | „alles sauber?", „kann ich die Session abschließen?", „Bananenschalen?", „are we done?" |
 | [`feierabend`](skills/feierabend/SKILL.md) | Saubere Session-Übergabe zum Arbeitsende: schreibt einen Handoff (Standard `docs/HANDOFF.md`), spürt Stolperfallen für morgen auf und gibt einen Start-Prompt mit — damit die nächste Session reibungslos weiterläuft. | „Feierabend", „das reicht für heute", „ich gehe gleich weg", „schreib eine Übergabe / Handoff" |
+| [`moin`](skills/moin/SKILL.md) | Wiedereinstieg zu Session-Beginn: übernimmt die hinterlassene Übergabe (Standard `docs/HANDOFF.md`), gleicht sie gegen den echten Stand (git, Commits, Dateien) ab, zeigt Verständnis und schlägt den ersten Schritt vor. | „Moin", „guten Morgen", „wo haben wir gestern aufgehört?", „lies dich in den Handoff ein" |
 
 ## Installation (Claude Code)
 
