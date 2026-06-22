@@ -1,6 +1,6 @@
 {
   "name": "elnebuloso",
-  "description": "Kuratiertes Skill-Pack für Claude Code. Skills für den Session-Lebenszyklus: moin (Einstieg) und feierabend (Übergabe).",
+  "description": "Kuratiertes Skill-Pack für Claude Code: bewährte Workflows als wiederverwendbare Skills.",
   "author": {
     "name": "elnebuloso",
     "email": "jan.thoennessen@gmail.com"
