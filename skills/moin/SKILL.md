@@ -40,6 +40,11 @@ Lies `docs/HANDOFF.md` (oder den genannten Pfad). Existiert die Datei nicht oder
 ist sie leer, gibt es keine Übergabe – sag das kurz und frag, was heute ansteht.
 Die restlichen Schritte entfallen dann; erfinde keinen Kontext, der nicht da ist.
 
+Liegt stattdessen eine `HANDOFF.md` außerhalb von `docs/` (z. B. im Projekt-Root
+aus einer früheren Session), übernimm sie nicht stillschweigend – das ist eine
+frische Bananenschale (siehe Schritt 2). Leg sie als Abweichung vor und frag, ob
+du sie als Quelle nimmst und nach `docs/HANDOFF.md` ziehst.
+
 ### 2. Gegen die Realität prüfen
 
 Das Gestern-Ich war gründlich, aber nicht unfehlbar – und vielleicht ist seitdem

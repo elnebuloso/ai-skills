@@ -23,7 +23,10 @@ Context starten. Deine Aufgabe ist es, die aktuelle Session sauber zu übergeben
 **aber zuerst zu prüfen, ob überhaupt eine Übergabe nötig ist.**
 
 Die Handoff-Datei ist standardmäßig `docs/HANDOFF.md`. Hat der Nutzer beim
-Aufruf einen anderen Pfad genannt, nimm den stattdessen.
+Aufruf einen anderen Pfad genannt, nimm den stattdessen. Fehlt das
+`docs/`-Verzeichnis, leg es an – weiche nie ersatzweise in den Projekt-Root
+aus (`HANDOFF.md` riecht nach root wie `README.md`, gehört hier aber unter
+`docs/`).
 
 Der Leitgedanke: Stell dir vor, du machst gleich Feierabend und startest morgen
 in einen neuen Arbeitstag. Alles Wichtige soll vor Augen liegen, der
@@ -58,8 +61,9 @@ schreibst oder löschst.
 
 ### 2. Die Übergabe-Datei auf Stand bringen
 
-Wenn der Nutzer sich für eine Übergabe entschieden hat: Bring die Datei so in
-Form, dass sie alles für einen frischen Start enthält. Wirf raus, was obsolet
+Wenn der Nutzer sich für eine Übergabe entschieden hat: Bring `docs/HANDOFF.md`
+(oder den genannten Pfad) so in Form, dass sie alles für einen frischen Start
+enthält. Wirf raus, was obsolet
 ist; ergänze, was fehlt – insbesondere Findings aus dieser Session, die für die
 nächste relevant sind. Schreiben darfst du eigenständig; jede Löschung von
 Bestehendem ist eine Entsorgung und läuft über die eiserne Regel oben: erst
@@ -86,8 +90,9 @@ auf dem Boden liegen, aber was weg darf, bestimmt der Nutzer.
 
 ### 4. Besenrein übergeben
 
-Schreib die Übergabe so, dass der morgige Start ohne Rückfragen gelingt, und
-hinterlass den Arbeitsplatz besenrein: keine verwaisten Notizen, keine toten
+Schreib die Übergabe nach `docs/HANDOFF.md` (oder den genannten Pfad) so, dass
+der morgige Start ohne Rückfragen gelingt, und hinterlass den Arbeitsplatz
+besenrein: keine verwaisten Notizen, keine toten
 Dateien, keine offenen Enden, die nirgendwo festgehalten sind. Dokumentieren
 eigenständig – alles, was du dabei löschen oder entsorgen willst, läuft über
 denselben Weg wie die Bananenschalen: erst vorlegen, dann handeln.
