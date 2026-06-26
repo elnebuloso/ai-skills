@@ -73,7 +73,7 @@ außerhalb hilft (z. B. `mkdocs/docs/`, ein Wiki, ein `findings.md`), falls der
 Kontext sonst lückenhaft bliebe.
 
 Bring das Material in eine **chronologische** Reihenfolge – denn nur so erkennst
-du, was eine spätere Entscheidung eine frühere überholt hat. Stütz dich auf:
+du, ob eine spätere Entscheidung eine frühere überholt. Stütz dich auf:
 
 - Zeitstempel in Dateinamen (z. B. `2026-06-25-2056-...`),
 - `git log` für Entstehungs- und Änderungszeit,
@@ -96,7 +96,10 @@ Nicht alles unter `docs/` gehört in eine Historie. Sortiere, bevor du schmilzt:
 - **Operative Referenz** – Setup-Anleitungen, API-/Schnittstellen-Doku, ADRs,
   Diagramme, Runbooks. Solche Doku beschreibt keinen Weg, sondern einen
   **aktuellen Zustand zum Nachschlagen**. Sie gehört nicht in eine Historie und
-  wird **nicht** mit eingeschmolzen oder gelöscht.
+  wird **nicht** mit eingeschmolzen oder gelöscht. **Verweise** in der
+  Wissensdatei höchstens darauf, statt ihren Inhalt hineinzukopieren – die
+  Referenz-Datei bleibt die einzige Quelle, sonst hast du zwei Stände, die
+  auseinanderlaufen.
 - **Frühere `KNOWLEDGE-*.md`** – die datierten Barren vergangener Schmelzen.
   Sie sind Vorzustand zum Lesen und zugleich das chronologische Archiv. Sie
   werden **weder eingeschmolzen noch gelöscht** und bleiben unverändert liegen.
@@ -119,7 +122,7 @@ mit einem kurzen Kopf, der die Schmelze datiert und verankert:
 
 ```markdown
 # Wissensstand <YYYY-MM-DD HH:MM>
-Eingeschmolzen aus docs/ (Stand git HEAD <kurzer-hash>).
+Eingeschmolzen aus <Zielverzeichnis> (Stand git HEAD <kurzer-hash>).
 ```
 
 Inhaltlich gilt: **verdichtet, aber in den Kernentscheidungen lückenlos.** Das
