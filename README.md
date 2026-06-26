@@ -77,6 +77,25 @@ skills/
 
 Jeder Skill steht in einem eigenen Ordner. Die `SKILL.md` enthält im Frontmatter `name` und `description` — die `description` entscheidet, wann Claude den Skill aktiviert.
 
+## Abschnitte für deine CLAUDE.md zum kopieren
+
+Generische Abschnitte, die du einfach in deine CLAUDE.md kopieren kannst. Erfinde das Rad nicht neu — nutze, was sich bewährt hat.
+
+````markdown
+## Git
+
+- **Conventional Commits**, Commit-Messages auf Englisch (Beispiel:
+  `fix(auth): handle expired tokens on refresh`). Jeden abgeschlossenen, kohärenten Arbeitsschritt
+  einzeln committen.
+- **Branch-Strategie (hybrid).** Default: **direkt auf `main`**. Branch-first nur, wenn die
+  Änderung den Build brechen oder etwas deployen kann (z. B. CI-/Deploy-relevante Pfade), ein
+  größerer zusammenhängender Eingriff ist, den du als Diff reviewen willst, oder
+  experimentell/verwerfbar ist. Faustregel: *kann es brechen, deployen oder will ich es als Diff
+  reviewen → Branch; Doku/Config/triviale Fixes → direkt `main`.*
+- **Vor dem Push fragen** (Committen läuft autonom gemäß Branch-Strategie).
+- **Nie force-pushen**, keine bereits gepushten Commits amenden, kein hard-reset.
+````
+
 ## Lizenz
 
 [MIT](LICENSE)
