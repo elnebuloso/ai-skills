@@ -31,9 +31,13 @@ die Schlacke – überholte Annahmen und verworfene Wege – wird nicht weggewor
 sondern **als überholt markiert abgeschieden**, damit sie sichtbar bleibt, ohne
 weiter als Wahrheit mitzuschmelzen.
 
-Das Ergebnis ist eine einzige Datei: `docs/KNOWLEDGE-YYYY-MM-DD-HHMM.md`. Der
-Zeitstempel im Namen hält fest, wann diese Schmelze entstanden ist – so bleibt
-der Skill beliebig oft nutzbar, und man sieht jeder Wissensdatei ihr Alter an.
+Jeder Lauf gießt einen neuen, datierten Barren: `docs/KNOWLEDGE-YYYY-MM-DD-HHMM.md`.
+Der Zeitstempel im Namen hält fest, wann diese Schmelze entstanden ist. Frühere
+Barren **bleiben liegen** – sie werden nie eingeschmolzen oder gelöscht. Die Kette
+der datierten `KNOWLEDGE`-Dateien *ist* der chronologische Kontext: jede ein
+eingefrorener Stand „so sah das Wissen damals aus". Die **jüngste** Datei ist der
+gültige Stand, die älteren sind das Archiv, an dem man die Entwicklung abliest.
+So bleibt der Skill beliebig oft nutzbar, ohne dass je Geschichte verloren geht.
 
 Das **Zielverzeichnis ist standardmäßig `docs/`** (rekursiv). Hat der Nutzer beim
 Aufruf ein anderes Verzeichnis genannt (z. B. `documentation/`, `wiki/` oder ein
@@ -75,10 +79,12 @@ du, was eine spätere Entscheidung eine frühere überholt hat. Stütz dich auf:
 - `git log` für Entstehungs- und Änderungszeit,
 - inhaltliche Bezüge („ersetzt X", „Revert von Y").
 
-Liegt bereits eine `KNOWLEDGE-*.md` aus einer früheren Schmelze vor, ist sie
-deine **wichtigste Vorzustands-Quelle**: der bereits verdichtete Stand. Sie wird
-mit eingeschmolzen und am Ende durch die neue ersetzt – es bleibt immer nur die
-jüngste.
+Liegen bereits `KNOWLEDGE-*.md` aus früheren Schmelzen vor, sind sie deine
+**wichtigste Vorzustands-Quelle**: der bereits verdichtete Stand, an dem du
+ablesen kannst, was sich seitdem verändert hat. Du **liest** sie als Kontext –
+aber du schmilzt sie **nicht** ein und löschst sie **nie**. Jede frühere
+`KNOWLEDGE`-Datei ist ein eingefrorener Stand und bleibt als chronologisches
+Archiv unverändert liegen. Deine neue Datei tritt einfach datiert daneben.
 
 ### 2. Schmelzgut von Referenz trennen
 
@@ -91,6 +97,9 @@ Nicht alles unter `docs/` gehört in eine Historie. Sortiere, bevor du schmilzt:
   Diagramme, Runbooks. Solche Doku beschreibt keinen Weg, sondern einen
   **aktuellen Zustand zum Nachschlagen**. Sie gehört nicht in eine Historie und
   wird **nicht** mit eingeschmolzen oder gelöscht.
+- **Frühere `KNOWLEDGE-*.md`** – die datierten Barren vergangener Schmelzen.
+  Sie sind Vorzustand zum Lesen und zugleich das chronologische Archiv. Sie
+  werden **weder eingeschmolzen noch gelöscht** und bleiben unverändert liegen.
 
 Wenn du unsicher bist, ob eine Datei Schmelzgut oder operative Referenz ist,
 **frag nach**, bevor du sie einschmilzt – im Zweifel bleibt sie stehen. Räum
@@ -134,19 +143,21 @@ Barren heraus.
 
 Zeig dem Nutzer die fertige `docs/KNOWLEDGE-<Zeitstempel>.md` zur Prüfung,
 **bevor du irgendetwas löschst**. Sag dazu, welche Dateien du als Schmelzgut
-einschmelzen und danach entsorgen würdest und welche du als operative Referenz
-stehen lässt.
+einschmelzen und danach entsorgen würdest, welche du als operative Referenz
+stehen lässt und welche früheren `KNOWLEDGE`-Dateien als Archiv unangetastet
+liegen bleiben.
 
 Dann warte. Erst nach dem Go geht es weiter – das ist der Punkt, an dem die
 eiserne Regel greift.
 
-### 5. Nach dem Go: die Schlacke entsorgen
+### 5. Nach dem Go: das Schmelzgut entsorgen
 
-Nach der Freigabe entsorge die eingeschmolzenen Quellen, sodass unter `docs/`
-genau **eine** `KNOWLEDGE-*.md` übrig bleibt – die neue – plus die als operative
-Referenz bewusst stehengelassenen Dateien. Eine ältere `KNOWLEDGE-*.md` aus einer
-früheren Schmelze gehört zum Schmelzgut und wird mitentsorgt.
+Nach der Freigabe entsorge die eingeschmolzenen Narrativ-Quellen. Unangetastet
+bleiben: die als operative Referenz stehengelassenen Dateien **und alle früheren
+`KNOWLEDGE-*.md`** – die werden nie gelöscht, sie sind das chronologische Archiv.
 
-Alles außerhalb von `docs/` bleibt unangetastet. Zum Schluss ist der Arbeitsplatz
-besenrein: kein Wust mehr, kein doppelter Stand, kein mitgeschleppter Bias – nur
-der frisch gegossene Wissensbarren.
+Unter `docs/` liegen am Ende also: deine neue `KNOWLEDGE-<Zeitstempel>.md` als
+jüngster, gültiger Stand, die älteren `KNOWLEDGE`-Barren daneben als Verlauf, und
+die operative Referenz. Verschwunden ist nur der rohe Wust. Alles außerhalb von
+`docs/` bleibt ohnehin unberührt. Besenrein heißt hier: kein roher Wust mehr, kein
+mitgeschleppter Bias – aber die Geschichte bleibt lückenlos ablesbar.
