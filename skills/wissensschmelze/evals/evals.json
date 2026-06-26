@@ -1,0 +1,56 @@
+{
+  "skill_name": "wissensschmelze",
+  "evals": [
+    {
+      "id": 1,
+      "name": "basic-smelt-with-bias-and-reference",
+      "prompt": "Unsere docs/ sind über die Monate ziemlich zugewuchert. Verdichte das mal zu einer Wissensdatei und wirf den alten Bias raus.",
+      "expected_output": "Erstellt docs/KNOWLEDGE-<timestamp>.md mit Header (Datum + git HEAD); trennt aktuell/gültig (Webhooks, PostgreSQL, Redis-Queue) klar von historisch/überholt (Polling, SQLite) und begründet das Verworfene; erkennt API.md als operative Referenz und schmilzt sie NICHT ein; stoppt vor jeder Löschung und legt vor, was eingeschmolzen/entsorgt und was behalten würde.",
+      "files": [
+        "fixtures/basic/docs/"
+      ],
+      "assertions": [
+        "Wissensdatei mit Zeitstempel-Namen KNOWLEDGE-YYYY-MM-DD-HHMM.md",
+        "Datei-Header mit Datum und git-HEAD-Verankerung",
+        "Getrennte Abschnitte aktuell/gueltig vs. historisch/ueberholt",
+        "Polling und SQLite als ueberholt markiert, nicht im gueltigen Stand",
+        "API.md bleibt eigenstaendige operative Referenz, nicht in die Wissensdatei dupliziert/eingeschmolzen",
+        "Keine Datei tatsaechlich geloescht; Loesch-Plan zum Review vorgelegt"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "custom-target-directory",
+      "prompt": "Die Doku liegt bei uns nicht unter docs/, sondern unter wiki/. Verdichte die Doku in wiki/ zu einer Wissensdatei.",
+      "expected_output": "Behandelt wiki/ als Zielverzeichnis; schreibt wiki/KNOWLEDGE-<timestamp>.md (nicht docs/); trennt gültig (inkrementelle Imports via CDC) von überholt (nächtlicher Monolith-Import); erkennt SETUP.md als operative Referenz; stoppt vor Löschung.",
+      "files": [
+        "fixtures/customdir/wiki/"
+      ],
+      "assertions": [
+        "Wissensdatei im Zielverzeichnis wiki/ erzeugt, nicht docs/",
+        "Zeitstempel-Name KNOWLEDGE-YYYY-MM-DD-HHMM.md",
+        "Datei-Header mit Datum und git-HEAD-Verankerung",
+        "Gueltig (inkrementell/CDC) vs. ueberholt (naechtlicher Monolith) getrennt",
+        "SETUP.md als operative Referenz behalten, nicht eingeschmolzen, nicht zur Loeschung vorgeschlagen",
+        "Keine Datei tatsaechlich geloescht; Loesch-Plan zum Review vorgelegt"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "repeat-run-supersedes-old-knowledge",
+      "prompt": "Wissensschmelze bitte. In docs/ liegt schon eine ältere KNOWLEDGE-Datei plus ein paar neue Notizen.",
+      "expected_output": "Liest die vorhandene KNOWLEDGE-2026-04-01-1000.md als primären Vorzustand, schmilzt sie aber NICHT ein und löscht sie NICHT; aktualisiert den Stand mit den neuen Entscheidungen (Dead-Letter-Queue ergänzt, Redis als überholt markiert/entfernt); schreibt eine neue KNOWLEDGE-<timestamp>.md, die datiert neben die alte tritt; entsorgt nach Go nur die rohen Mai-Notizen, die alte KNOWLEDGE-Datei bleibt als chronologisches Archiv liegen; stoppt vor Löschung.",
+      "files": [
+        "fixtures/repeat/docs/"
+      ],
+      "assertions": [
+        "Neue Wissensdatei mit Zeitstempel-Namen erzeugt",
+        "Alte KNOWLEDGE-2026-04-01 als Vorzustand gelesen, aber NICHT eingeschmolzen",
+        "Redis als ueberholt/entfernt markiert, nicht als aktive Queue im gueltigen Stand",
+        "Dead-Letter-Queue im gueltigen Stand aufgenommen",
+        "Alte KNOWLEDGE-Datei bleibt liegen: NICHT im Loesch-Plan, neue tritt datiert daneben",
+        "Keine Datei tatsaechlich geloescht; Loesch-Plan zum Review vorgelegt"
+      ]
+    }
+  ]
+}
